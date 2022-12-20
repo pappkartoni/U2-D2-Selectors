@@ -413,25 +413,41 @@
 
     <a href="#" class="float-right mb-3 mr-3">Back to top</a>
     <script>
-        const doTheStuff = function() {
-            /* JS Exercises should go here */
-            // Write a JavaScript functionality to add a new link into the navbar
+        /* JS Exercises should go here */
+
+        // Write a JavaScript functionality to add a new link into the navbar
+        const task13 = function() {
             let newLink = document.createElement("span");
             newLink.innerHTML = "<a href='#'> Click me </a>";
             document.querySelector("nav.nav").appendChild(newLink);
-            // Write a JavaScript functionality to change the color of the main heading title
+        };
+
+        // Write a JavaScript functionality to change the color of the main heading title
+        const task14 = function() {
             document.querySelector("main > .row > .blog-main h3").innerText = "Something about hoses"; // due to it saying "main" i decided to go for this one, if it was meant to target h1 this was VERY unclear but the selector for that was used in the css part at the top
-            // Write a JavaScript functionality to change the background of the jumbotron
+        };
+
+        // Write a JavaScript functionality to change the background of the jumbotron
+        const task15 = function() {
             document.querySelector("div.jumbotron").style.backgroundColor = "bisque";
-            // Write a JavaScript functionality to remove the “twitter” link under the “Elsewhere” section in the aside element. It should happen when the page loads, automatically
+        };
+
+        // Write a JavaScript functionality to remove the “twitter” link under the “Elsewhere” section in the aside element. It should happen when the page loads, automatically
+        const task16 = function() {
             document.querySelector("aside.blog-sidebar .p-4:nth-of-type(3) ol:first-of-type li:nth-of-type(2)").remove();
-            // Write a JavaScript functionality to remove the first 50 characters in the first paragraph for every blog post
-            // let ps = document.querySelectorAll("div.blog-main .blog-post p:not(.blog-post-meta):first-of-type"); //why does this not work?
+        };
+
+        // Write a JavaScript functionality to remove the first 50 characters in the first paragraph for every blog post
+        // let ps = document.querySelectorAll("div.blog-main .blog-post p:not(.blog-post-meta):first-of-type"); //why does this not work?
+        const task17 = function() {
             let ps = document.querySelectorAll("div.blog-main .blog-post p:nth-of-type(2)");
             for (let p of ps) {
                 p.innerText = p.innerText.substring(50);
             }
-            // Write a JavaScript functionality to add a new Blog Post (div with title and text)
+        };
+
+        // Write a JavaScript functionality to add a new Blog Post (div with title and text)
+        const task18 = function() {
             let main = document.querySelector("main > .row > div.blog-main");
             let bp = document.createElement("div");
             bp.className = "blog-post";
@@ -446,28 +462,43 @@
             bp.appendChild(h2);
             bp.appendChild(bpm);
             bp.appendChild(bpt);
-            main.insertBefore(bp, main.lastElementChild)
-            // Write a JavaScript functionality to remove the last Blog Post when the user clicks on the "Older" button
+            main.insertBefore(bp, main.lastElementChild);
+        };
+
+        // Write a JavaScript functionality to remove the last Blog Post when the user clicks on the "Older" button
+        const task19 = function() {
             let btn = document.querySelector("nav.blog-pagination a:first-of-type");
             btn.removeAttribute("href");
             btn.onclick = function() {
                 document.querySelector("main > .row > div.blog-main > .blog-post:last-of-type").remove(); //todo catch error
             }
-            // Write a JavaScript functionality that will create an alert with the name of the author every time the user hovers the mouse on an author's name
+        };
+
+        // Write a JavaScript functionality that will create an alert with the name of the author every time the user hovers the mouse on an author's name
+        const task20 = function() {
             let authors = document.querySelectorAll(".blog-post > .blog-post-meta > a");
             for (let a of authors) {
                 a.addEventListener("mouseover", function() {
                     alert(event.target.innerText);
                 });
             }
-            // EXTRA Write a JavaScript functionality that will remove the corresponding parent card from the DOM, upon clicking on their “Continue reading” link
-            let ctns = document.querySelectorAll(".jumbotron + .row a.stretched-link");
+        };
+
+        // EXTRA Write a JavaScript functionality that will remove the corresponding parent card from the DOM, upon clicking on their “Continue reading” link
+        const task21 = function() {
+            let ctns = document.querySelectorAll(".jumbotron + .row a.stretched-link"); //the links kinda shorthanded
+            let cards = document.querySelectorAll(".jumbotron + .row > .col-md-6"); // the cards by their bootstrap columns
             for (let i = 0; i <  ctns.length; i++) {
                 ctns[i].addEventListener("click", function() {
-                    c.parentElement.parentElement.remove(); // yikes / should get index of c and then remove the corresponding card with same index i.e. ocument.querySelectorAll(".jumbotron + .row > .col-md-6") 
+                    //c.parentElement.parentElement.remove(); // yikes but would've worked
+                    cards[i].remove();
                 });
             }
         }
+
+        window.addEventListener("DOMContentLoaded", function() {
+            task16();
+        })
     </script>
 </body>
 
